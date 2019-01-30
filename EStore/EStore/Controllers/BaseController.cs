@@ -3,7 +3,8 @@
 namespace EStore.Controllers
 {
     [Route("api/[controller]")]
-    public class BaseController : Controller
+    [ApiController]
+    public class BaseController : ControllerBase
     {
         
     }
