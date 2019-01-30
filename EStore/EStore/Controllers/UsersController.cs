@@ -7,6 +7,7 @@ namespace EStore.Controllers
 {
     public class UsersController : BaseController
     {
+        [HttpGet]
         public IActionResult GetAll()
         {
             var users = new List<User>();
