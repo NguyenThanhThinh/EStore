@@ -8,12 +8,13 @@ namespace EStore.Controllers
     public class UsersController : BaseController
     {
         [HttpGet]
+        [Route("v1/all")]
         public IActionResult GetAll()
         {
             var users = new List<User>();
+            var random = new Random();
             for (int i = 0; i < 20; i++)
-            {
-                var random = new Random();
+            {              
                 users.Add(new User
                 {
                     Id = i,
@@ -22,8 +23,7 @@ namespace EStore.Controllers
                     Password = random.Next(1000000).ToString()
                 });
             }
-            var result = users != null ? users : null;
-            return Ok(result);
+            return Ok(users);
         }
     }
 }
