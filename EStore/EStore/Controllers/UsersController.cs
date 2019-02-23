@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using EStore.Domain.Entities;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EStore.Controllers
 {
+    [EnableCors("CorsPolicy")]
     public class UsersController : BaseController
     {
         [HttpGet]
@@ -23,7 +25,7 @@ namespace EStore.Controllers
                     Password = random.Next(1000000).ToString()
                 });
             }
-            return Ok(users);
+            return new JsonResult(users);
         }
     }
 }
